@@ -1,0 +1,10 @@
+# Relatório Final Formatado
+print("\n" + "="*40)
+print("             RELATÓRIO FINAL")
+print("="*40)
+print(f"Total de produtos cadastrados: {len(produtos)}")
+print(f"Categorias únicas: {', '.join(categorias_unicas)}")
+print(f"Menor preço registado: R$ {estatisticas[0]:.2f}")
+print(f"Maior preço registado: R$ {estatisticas[1]:.2f}")
+print(f"Média de preços: R$ {estatisticas[2]:.2f}")
+print("="*40)
