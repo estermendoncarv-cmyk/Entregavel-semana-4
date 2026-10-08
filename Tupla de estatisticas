@@ -1,0 +1,13 @@
+# Tupla de Estatísticas
+if produtos:
+    precos = [p["preco"] for p in produtos]
+    menor = min(precos)
+    maior = max(precos)
+    media = sum(precos) / len(precos)
+    
+    estatisticas = (menor, maior, media)
+else:
+    estatisticas = (0.0, 0.0, 0.0)
+
+print("\n--- Tupla de Estatísticas ---")
+print(f"Estatísticas (Menor Preço, Maior Preço, Média): {estatisticas}")
