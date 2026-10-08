@@ -1,0 +1,4 @@
+# Conjunto de Categorias Únicas
+categorias_unicas = set(p["categoria"] for p in produtos)
+print("\n--- Categorias Únicas ---")
+print(f"Categorias cadastradas: {categorias_unicas}")
