@@ -1,0 +1,13 @@
+# Filtragem por Preço
+print("\n--- Filtragem por Preço ---")
+valor_referencia = float(input("Informe um valor de referência para filtrar: "))
+opcao = input("Deseja ver produtos [acima] ou [abaixo] deste valor? ").strip().lower()
+
+if opcao == "acima":
+    filtrados = [p for p in produtos if p["preco"] > valor_referencia]
+else:
+    filtrados = [p for p in produtos if p["preco"] < valor_referencia]
+
+print(f"\nProdutos com preço {opcao} de R$ {valor_referencia:.2f}:")
+for p in filtrados:
+    print(f"- {p['nome']} (R$ {p['preco']:.2f})")
