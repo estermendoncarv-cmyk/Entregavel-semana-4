@@ -1,0 +1,12 @@
+# Ordenação
+print("\n--- Ordenação por Preço ---")
+
+produtos_crescente = sorted(produtos, key=lambda x: x["preco"])
+print("Preço Crescente:")
+for p in produtos_crescente:
+    print(f"- {p['nome']}: R$ {p['preco']:.2f}")
+
+produtos_decrescente = sorted(produtos, key=lambda x: x["preco"], reverse=True)
+print("\nPreço Decrescente:")
+for p in produtos_decrescente:
+    print(f"- {p['nome']}: R$ {p['preco']:.2f}")
