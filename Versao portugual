@@ -1,4 +1,4 @@
-# Cadastro de Produtos (Lógica equivalente em Portugal)
+
 nomes = [""] * 5
 precos = [0.0] * 5
 categorias = [""] * 5
@@ -78,12 +78,7 @@ estatisticas = (menor_preco, maior_preco, media_precos)
 print("\n--- Tupla de Estatísticas ---")
 print(f"Estatísticas (Menor, Maior, Média): {estatisticas}")
 
-# Relatório Final Formatado com f-strings
-print("\n" + "="*40)
-print("             RELATÓRIO FINAL")
-print("="*40)
-print(f"Total de produtos cadastrados: {len(nomes)}")
-print(f"Categorias únicas: {categorias_unicas}")
+
 print(f"Menor preço registado: {estatisticas[0]}")
 print(f"Maior preço registado: {estatisticas[1]}")
 print(f"Média de preços: {estatisticas[2]:.2f}")
