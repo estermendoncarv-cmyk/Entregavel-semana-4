@@ -1,0 +1,90 @@
+# Cadastro de Produtos (Lógica equivalente em Portugal)
+nomes = [""] * 5
+precos = [0.0] * 5
+categorias = [""] * 5
+
+print("--- Cadastro de Produtos ---")
+for i in range(5):
+    print(f"\nProduto {i+1}:")
+    nomes[i] = input("Nome do produto: ")
+    precos[i] = float(input("Preço do produto (€): "))
+    categorias[i] = input("Categoria do produto: ")
+
+    # Filtragem por Preço (Utilizando laços e testes lógicos manuais)
+print("\n--- Filtragem por Preço ---")
+valor_referencia = float(input("Informe um valor de referência para filtrar: "))
+opcao = input("Deseja ver produtos [acima] ou [abaixo] deste valor? ").strip().lower()
+
+print(f"\nProdutos com preço {opcao} de {valor_referencia}:")
+for i in range(len(precos)):
+    if opcao == "acima" and precos[i] > valor_referencia:
+        print(f"- {nomes[i]} ({precos[i]})")
+    elif opcao == "abaixo" and precos[i] < valor_referencia:
+        print(f"- {nomes[i]} ({precos[i]})") 
+
+        # Ordenação pelo método da bolha (Bubble Sort) sem usar sort()
+nomes_ordenados = nomes.copy()
+precos_ordenados = precos.copy()
+
+n = len(precos_ordenados)
+for i in range(n):
+    for j in range(0, n - i - 1):
+        if precos_ordenados[j] > precos_ordenados[j + 1]:
+            # Troca o preço
+            aux_preco = precos_ordenados[j]
+            precos_ordenados[j] = precos_ordenados[j + 1]
+            precos_ordenados[j + 1] = aux_preco
+            
+            # Troca o nome correspondente para manter sincronia
+            aux_nome = nomes_ordenados[j]
+            nomes_ordenados[j] = nomes_ordenados[j + 1]
+            nomes_ordenados[j + 1] = aux_nome
+
+print("\n--- Ordenação por Preço (Crescente) ---")
+for i in range(n):
+    print(f"- {nomes_ordenados[i]}: {precos_ordenados[i]}")
+
+    # Simulação manual de conjuntos (ignorando valores repetidos com laços)
+categorias_unicas = []
+for cat in categorias:
+    ja_existe = False
+    for unica in categorias_unicas:
+        if cat == unica:
+            ja_existe = True
+            break
+    if not ja_existe:
+        categorias_unicas.append(cat)
+
+print("\n--- Categorias Únicas ---")
+print(f"Categorias cadastradas: {categorias_unicas}")
+
+# Simulação de tupla e cálculo manual de menor, maior e média
+menor_preco = precos[0]
+maior_preco = precos[0]
+soma_precos = 0.0
+total_elementos = 0
+
+for p in precos:
+    if p < menor_preco:
+        menor_preco = p
+    if p > maior_preco:
+        maior_preco = p
+    soma_precos += p
+    total_elementos += 1
+
+media_precos = soma_precos / total_elementos
+estatisticas = (menor_preco, maior_preco, media_precos)
+
+print("\n--- Tupla de Estatísticas ---")
+print(f"Estatísticas (Menor, Maior, Média): {estatisticas}")
+
+# Relatório Final Formatado com f-strings
+print("\n" + "="*40)
+print("             RELATÓRIO FINAL")
+print("="*40)
+print(f"Total de produtos cadastrados: {len(nomes)}")
+print(f"Categorias únicas: {categorias_unicas}")
+print(f"Menor preço registado: {estatisticas[0]}")
+print(f"Maior preço registado: {estatisticas[1]}")
+print(f"Média de preços: {estatisticas[2]:.2f}")
+print("="*40)
